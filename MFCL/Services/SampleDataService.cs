@@ -146,7 +146,7 @@ namespace MFCL.Services
                 {
                     ID = $"{i}",
                     Source = $"ms-appx:///Assets/serv/serv{i}.png",
-                    Name = $"Image sample {i}"
+                    Name = $"Услуги {i}"
                 });
             }
 
