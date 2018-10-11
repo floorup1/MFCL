@@ -51,10 +51,10 @@ namespace MFCL.Views
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var sampleImageId = e.Parameter as string;
-            if (!string.IsNullOrEmpty(sampleImageId) && e.NavigationMode == NavigationMode.New)
+            var servId = e.Parameter as string;
+            if (!string.IsNullOrEmpty(servId) && e.NavigationMode == NavigationMode.New)
             {
-                SelectedImage = Source.FirstOrDefault(i => i.ID == sampleImageId);
+                SelectedImage = Source.FirstOrDefault(i => i.ID == servId);
             }
             else
             {
