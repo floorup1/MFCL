@@ -23,9 +23,9 @@ namespace MFCL.Views
         public const string ImageGalleryAnimationOpen = "ImageGallery_AnimationOpen";
         public const string ImageGalleryAnimationClose = "ImageGallery_AnimationClose";
 
-        private ObservableCollection<SampleImage> _source;
+        private ObservableCollection<Serv> _source;
 
-        public ObservableCollection<SampleImage> Source
+        public ObservableCollection<Serv> Source
         {
             get => _source;
             set => Set(ref _source, value);
@@ -36,7 +36,7 @@ namespace MFCL.Views
             Loaded += ImageGalleryPage_Loaded;
 
             // TODO WTS: Replace this with your actual data
-            Source = SampleDataService.GetGallerySampleData();
+            Source = SampleDataService.GetGalleryServ();
             InitializeComponent();
         }
 
@@ -48,7 +48,7 @@ namespace MFCL.Views
                 var animation = ConnectedAnimationService.GetForCurrentView().GetAnimation(ImageGalleryAnimationClose);
                 if (animation != null)
                 {
-                    var item = ImagesGridView.Items.FirstOrDefault(i => ((SampleImage)i).ID == selectedImageId);
+                    var item = ImagesGridView.Items.FirstOrDefault(i => ((Serv)i).ID == selectedImageId);
                     ImagesGridView.ScrollIntoView(item);
                     await ImagesGridView.TryStartConnectedAnimationAsync(animation, item, "galleryImage");
                 }
@@ -59,7 +59,7 @@ namespace MFCL.Views
 
         private void ImagesGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var selected = e.ClickedItem as SampleImage;
+            var selected = e.ClickedItem as Serv;
             ImagesGridView.PrepareConnectedAnimation(ImageGalleryAnimationOpen, selected, "galleryImage");
             NavigationService.Navigate<ImageGalleryDetailPage>(selected.ID);
         }

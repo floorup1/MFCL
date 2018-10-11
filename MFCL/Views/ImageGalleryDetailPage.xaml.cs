@@ -23,7 +23,7 @@ namespace MFCL.Views
     {
         private DispatcherTimer _timer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(500) };
         private object _selectedImage;
-        private ObservableCollection<SampleImage> _source;
+        private ObservableCollection<Serv> _source;
 
         public object SelectedImage
         {
@@ -31,11 +31,11 @@ namespace MFCL.Views
             set
             {
                 Set(ref _selectedImage, value);
-                ApplicationData.Current.LocalSettings.SaveString(ImageGalleryPage.ImageGallerySelectedIdKey, ((SampleImage)SelectedImage).ID);
+                ApplicationData.Current.LocalSettings.SaveString(ImageGalleryPage.ImageGallerySelectedIdKey, ((Serv)SelectedImage).ID);
             }
         }
 
-        public ObservableCollection<SampleImage> Source
+        public ObservableCollection<Serv> Source
         {
             get => _source;
             set => Set(ref _source, value);
@@ -44,7 +44,7 @@ namespace MFCL.Views
         public ImageGalleryDetailPage()
         {
             // TODO WTS: Replace this with your actual data
-            Source = SampleDataService.GetGallerySampleData();
+            Source = SampleDataService.GetGalleryServ();
             InitializeComponent();
         }
 

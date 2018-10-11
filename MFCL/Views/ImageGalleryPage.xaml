@@ -18,7 +18,7 @@
             ItemClick="ImagesGridView_ItemClick"
             SelectionMode="None">
             <GridView.ItemTemplate>
-                <DataTemplate x:DataType="models:SampleImage">
+                <DataTemplate x:DataType="models:Serv">
                     <Image
                         x:Name="galleryImage"
                         Style="{StaticResource ThumbnailImageStyle}"

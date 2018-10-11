@@ -136,5 +136,21 @@ namespace MFCL.Services
 
             return data;
         }
+
+        public static ObservableCollection<Serv> GetGalleryServ()
+        {
+            var data = new ObservableCollection<Serv>();
+            for (int i = 1; i <= 18; i++)
+            {
+                data.Add(new Serv()
+                {
+                    ID = $"{i}",
+                    Source = $"ms-appx:///Assets/serv/serv{i}.png",
+                    Name = $"Image sample {i}"
+                });
+            }
+
+            return data;
+        }
     }
 }
