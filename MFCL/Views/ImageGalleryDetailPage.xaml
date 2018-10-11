@@ -31,12 +31,14 @@
             SelectedItem="{x:Bind SelectedImage, Mode=TwoWay}">
             <FlipView.ItemTemplate>
                 <DataTemplate x:DataType="models:Serv">
-                    <Viewbox StretchDirection="DownOnly">
+                    <Grid >
+                        <ScrollViewer ZoomMode="Enabled" VerticalScrollMode="Enabled" HorizontalScrollMode="Enabled">
                         <Image
                             x:Name="detailImage"
-                            Stretch="None"
+                            Stretch="Fill"
                             Source="{x:Bind Source, Mode=OneWay}" />
-                    </Viewbox>
+                        </ScrollViewer>
+                    </Grid>
                 </DataTemplate>
             </FlipView.ItemTemplate>
         </FlipView>
